@@ -4,7 +4,7 @@
   <title><![CDATA[Code for Thought]]></title>
   <link href="http://hannahlw.github.io/atom.xml" rel="self"/>
   <link href="http://hannahlw.github.io/"/>
-  <updated>2015-03-29T19:43:02-04:00</updated>
+  <updated>2015-03-29T21:44:56-04:00</updated>
   <id>http://hannahlw.github.io/</id>
   <author>
     <name><![CDATA[Hannah Westheimer]]></name>
@@ -12,5 +12,25 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[So You Want to Be a Web-Developer?]]></title>
+    <link href="http://hannahlw.github.io/blog/2015/03/29/so-you-want-to-be-a-web-developer/"/>
+    <updated>2015-03-29T21:20:33-04:00</updated>
+    <id>http://hannahlw.github.io/blog/2015/03/29/so-you-want-to-be-a-web-developer</id>
+    <content type="html"><![CDATA[<p>Tomorrow is my first day of The Flatiron Program and I expect the next three months will be super intense and, I hope, super rewarding in the end.</p>
+
+<p>My background is not in code. In fact I literally had to google “what is code?” when I first started. I found web-development when I moved to Philly with my husband who just started vet school and I was left without a close group of friends and without an interesting job (I nannied which was so fun but limited my conversations with adults even more). I had just binged watched all of Gossip Girl and I realized I needed to stimulate my brain somehow or I was going to get lost in this world of Netflix and my comfy couch.</p>
+
+<iframe src="//giphy.com/embed/11AhuUM0WCwsms?html5=true" width="480" height="260" frameBorder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+
+<p>I started googling fun stimulating things to do and I stumbled across <a href="http://www.codecademy.com/hannah.westheimergmail.com">Codecademy</a> and through “learning a new skill and being able to build something in the process &ndash; this could be really cool”. I had fun messing around and when I told my brother who is engaged in the NY tech scene he said something like “you know you can actually make a career out of that? Check out The Flatiron School.” I did and the rest is history.</p>
+
+<p>After about a year of taking classes on and off through Codecademy, Treehouse and Girl Develop It, code is thrilling and fun when I get it however, most of the time it is still really hard and confusing. I am super excited for the chance to learn with other people, have instructors, and a curriculum to steer me in the right direction.</p>
+
+<p>Here’s to the next three months!</p>
+]]></content>
+  </entry>
   
 </feed>
