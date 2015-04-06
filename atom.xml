@@ -4,7 +4,7 @@
   <title><![CDATA[Code for Thought]]></title>
   <link href="http://hannahlw.github.io/atom.xml" rel="self"/>
   <link href="http://hannahlw.github.io/"/>
-  <updated>2015-03-29T21:44:56-04:00</updated>
+  <updated>2015-04-05T22:05:09-04:00</updated>
   <id>http://hannahlw.github.io/</id>
   <author>
     <name><![CDATA[Hannah Westheimer]]></name>
@@ -12,6 +12,47 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Your Basic Guide to Git]]></title>
+    <link href="http://hannahlw.github.io/blog/2015/04/05/your-basic-guide-to-git/"/>
+    <updated>2015-04-05T19:57:36-04:00</updated>
+    <id>http://hannahlw.github.io/blog/2015/04/05/your-basic-guide-to-git</id>
+    <content type="html"><![CDATA[<h1>Your Basic Guide to Git and GitHub</h1>
+
+<p>When I first learned about Git and GitHub I assumed it was something like Google Docs - a place to store your code online so that you could access it anywhere, share it and collaborate with anyone also using github. While github is all these things, I was missing the biggest advantage to git and github. Git is a version control platform - meaning that it can save your changes along the way and you can go back to each change that you have saved and revisit it.</p>
+
+<p>I remember when writing my college papers, I would continually save my work in case something crashed and I lost everything. With word processing programs the changes you save are permanent. If I deleted a paragraph or changed any aspect of the paper and I wanted to go back to what I had before, I would have had to make a separate document which would have gotten very messy. However,  If you were using a version control program like git, you could get your changes back much more easily. While working on that paper you could have “committed” or (saved) the changes along the way and like magic you could get back any of these changes!</p>
+
+<p>Version control is an amazingly useful however, because it is executed through the command line (or terminal) it can be kind of confusing at first. So what are some basic git commands to know if you want to use git as your version control?</p>
+
+<p><code>$ git init</code> - This creates a new repository, (or &ldquo;repo&rdquo; for short), which basically tells your computer you are going to use git.</p>
+
+<p>git status - Running this command will tell you exactly what is happening in git. Are there files that you have modified and haven’t been saved within git yet? git will let you know if you run this command.</p>
+
+<p>git add file_name or git add . -This command tells your computer that you are about to save a file. It will put the file in a staging area that tells the computer, “Hey - I am about to tell you to save this file”. If you want to save all the files that have been modified you can use git add .</p>
+
+<p>git commit -m “your message here” - Here you are saving the files with a little message. This message is for you to look back on and remember why you made changes and why you are saving them at this stage in your project.</p>
+
+<p>git log -This command allows you to see all the commits or times you have saved your files throughout your project. You can look through them and if you decide you want to go back to one of these versions of your project it is easy to do so.</p>
+
+<h2>Using Git with GitHub</h2>
+
+<p>Github is the online or remote location you can store your files so that you can share them, save a copy remotely, and more easily see the changes you have made each time you commit a change.</p>
+
+<p>You have to first create a remote repository in your github account that has the same name as directory where you have stored your files on your computer. Next you can start “pushing” or sending your files into your github repository. Here are the commands to know in order to do this.</p>
+
+<p>git remote add origin <a href="https://github.com/hannahlw/my_project.git">https://github.com/hannahlw/my_project.git</a> - (the url should be the url of your remote repo). This command first tells your computer that there is a remote place for it to store your files you are saving with git. Next it names that remote repo “origin”. Finally, it tells the computer where the newly named repo is located by giving the url.</p>
+
+<p>git push -u origin master - This command will actually send or push the files to your github account.</p>
+
+<p>Now you should now see your code in your GitHub repository!</p>
+
+<p>Happy committing!</p>
+
+<p>Hannah</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[So You Want to Be a Web-Developer?]]></title>
