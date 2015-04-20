@@ -4,7 +4,7 @@
   <title><![CDATA[Code for Thought]]></title>
   <link href="http://hannahlw.github.io/atom.xml" rel="self"/>
   <link href="http://hannahlw.github.io/"/>
-  <updated>2015-04-19T22:23:02-04:00</updated>
+  <updated>2015-04-19T22:37:54-04:00</updated>
   <id>http://hannahlw.github.io/</id>
   <author>
     <name><![CDATA[Hannah Westheimer]]></name>
@@ -12,6 +12,49 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[A Basic Guide to Octopress]]></title>
+    <link href="http://hannahlw.github.io/blog/2015/04/19/a-basic-guide-to-octopress/"/>
+    <updated>2015-04-19T22:28:21-04:00</updated>
+    <id>http://hannahlw.github.io/blog/2015/04/19/a-basic-guide-to-octopress</id>
+    <content type="html"><![CDATA[<p>Here are some commands to remember to help your octopress experience go smoothly!</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Creating a new post - pages can be found in source/_posts.
+</span><span class='line'>rake new_post['Title of the Post']</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Creating a new page 
+</span><span class='line'>rake new_page['Title of the page']</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Previewing your work at http://localhost:4000
+</span><span class='line'>rake preview</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Publishing Posts
+</span><span class='line'>rake generate
+</span><span class='line'>rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I hope to add to this as I continue to use this site and find my commands useful.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Changing the Way I Think About Complex Problems]]></title>
