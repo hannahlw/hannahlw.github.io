@@ -9,7 +9,7 @@
   <meta name="author" content="Hannah Westheimer">
 
   
-  <meta name="description" content="When I first learned about Git and GitHub I assumed it was something like Google Docs - a place to store your code online so that you could access it &hellip;">
+  <meta name="description" content="I knew that doing the Flatiron Web-Immersion program would push me in many ways. The expectations are to go from zero programming skills to 100 in 12 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,221 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/04/19/changing-the-way-i-think-about-complex-problems/">Changing the Way I Think About Complex Problems</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-04-19T14:50:49-04:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>2:50 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I knew that doing the Flatiron Web-Immersion program would push me in many ways. The expectations are to go from zero programming skills to 100 in 12 short weeks. This means that every single day we are introduced to new concepts that seem so big, so important and so impossible to learn. It is overwhelming and can make you feel like you can’t accomplish any of it. Over the past three weeks I have mostly felt like a failure. Why can’t I understand these concepts? In the first week I understood a lot of what was going on. Simple ruby concepts like how to access values in a hash or in an array or how a conditional statement worked, I could understand, but the moment you asked me to do something more complex, I froze.</p>
+
+<p>About half way through this past week I realized what one of the things that was holding me back was my mentality. I was spending so much energy on “I can’t” instead of telling myself “you can, just go one simple step at a time”. When working on more complex problems, I started telling myself, “Start with what you know.  I can access these values in a hash, and then use <a href="http://pryrepl.org/">binding.pry</a> to figure out the rest one step at a time.” This mentality shift has helped in so many ways. Number one, I am spending less energy on “I can’t do this” and more on learning how to actually do it. And number two, I feel less paralyzed when hard concepts are introduced to me.</p>
+
+<p>Break Down Each Task to Things I Understand
+One example of my new outlook to understand more complex concepts (breaking things down to the concepts I do get and moving forward from there) can be seen when looking at our NYC Pigeon’s Lab that asked us to take a hash that looked like this&hellip;</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pigeon_data = {
+</span><span class='line'>  :color =&gt; {
+</span><span class='line'>    :purple =&gt; ["Theo", "Peter Jr.", "Lucky"],
+</span><span class='line'>    :grey =&gt; ["Theo", "Peter Jr.", "Ms. K"],
+</span><span class='line'>    :white =&gt; ["Queenie", "Andrew", "Ms. K", "Alex"],
+</span><span class='line'>    :brown =&gt; ["Queenie", "Alex"]
+</span><span class='line'>  },
+</span><span class='line'>  :gender =&gt; {
+</span><span class='line'>    :male =&gt; ["Alex", "Theo", "Peter Jr.", "Andrew", "Lucky"],
+</span><span class='line'>    :female =&gt; ["Queenie", "Ms. K"]
+</span><span class='line'>  },
+</span><span class='line'>  :lives =&gt; {
+</span><span class='line'>    "Subway" =&gt; ["Theo", "Queenie"],
+</span><span class='line'>    "Central Park" =&gt; ["Alex", "Ms. K", "Lucky"],
+</span><span class='line'>    "Library" =&gt; ["Peter Jr."],
+</span><span class='line'>    "City Hall" =&gt; ["Andrew"]
+</span><span class='line'>  }
+</span><span class='line'>} </span></code></pre></td></tr></table></div></figure>
+
+
+<p>And create one that looked like this&hellip;</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pigeon_list = {
+</span><span class='line'>  "Theo" =&gt; {
+</span><span class='line'>    :color =&gt; ["purple", "grey"],
+</span><span class='line'>    :gender =&gt; ["male"],
+</span><span class='line'>    :lives =&gt; ["Subway]"
+</span><span class='line'>  },
+</span><span class='line'>  "Peter Jr." =&gt; {
+</span><span class='line'>    :color =&gt; ["purple", "grey"],
+</span><span class='line'>    :gender =&gt; ["male"],
+</span><span class='line'>    :lives =&gt; ["Library]"
+</span><span class='line'>  },
+</span><span class='line'>  "Lucky" =&gt; {
+</span><span class='line'>    :color =&gt; ["purple"],
+</span><span class='line'>    :gender =&gt; ["male"],
+</span><span class='line'>    :lives =&gt; ["Central Park"]
+</span><span class='line'>  },
+</span><span class='line'>  "Ms. K" =&gt; {
+</span><span class='line'>    :color =&gt; ["grey", "white"],
+</span><span class='line'>    :gender =&gt; ["female"],
+</span><span class='line'>    :lives =&gt; ["Central Park"]
+</span><span class='line'>  },
+</span><span class='line'>  "Queenie" =&gt; {
+</span><span class='line'>    :color =&gt; ["white", "brown"],
+</span><span class='line'>    :gender =&gt; ["female"],
+</span><span class='line'>    :lives =&gt; ["Subway"]
+</span><span class='line'>  },
+</span><span class='line'>  "Andrew" =&gt; {
+</span><span class='line'>    :color =&gt; ["white"],
+</span><span class='line'>    :gender =&gt; ["male"],
+</span><span class='line'>    :lives =&gt; ["City Hall"]
+</span><span class='line'>  },
+</span><span class='line'>  "Alex" =&gt; {
+</span><span class='line'>    :color =&gt; ["white", "brown"],
+</span><span class='line'>    :gender =&gt; ["male"],
+</span><span class='line'>    :lives =&gt; ["Central Park"]
+</span><span class='line'>  }
+</span><span class='line'>} </span></code></pre></td></tr></table></div></figure>
+
+
+<p>At first I froze. This seems impossible, how the heck can I switch values for keys and vise versa!? However, after I took a step back and remembered that accessing values is the same in this case as it is in one of our easier labs, I was able to breathe and start iterating through the hash, getting out the values I needed and setting up my new hash.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def nyc_pigeon_organizer(pigeon_data)
+</span><span class='line'>  new_hash = {}
+</span><span class='line'>  pigeon_data.each do |trait_group, trait_hash|
+</span><span class='line'>    trait_hash.each do |trait_details, names_array|
+</span><span class='line'>      names_array.each do |name|
+</span><span class='line'>      new_hash[name] ||= {}
+</span><span class='line'>      new_hash[name][trait_group] ||= []
+</span><span class='line'>      new_hash[name][trait_group] &lt;&lt; trait_details.to_s
+</span><span class='line'>    end
+</span><span class='line'>  end
+</span><span class='line'>end
+</span><span class='line'>new_hash
+</span><span class='line'>end </span></code></pre></td></tr></table></div></figure>
+
+
+<p>Helper Methods
+Another helpful way to break down tasks is with helper methods. A helper method is a method that helps another method to perform its task. These are typically used when a method has to perform a complicated task that is composed of several smaller tasks. These methods can reduce confusion and help make our tasks more clear.</p>
+
+<p>We saw helper methods come to the rescue one of the more complex hash labs - Hashketball. In this lab we broke down methods like how to find the number of points scored into two different methods. This let us organize the data into a simpler form and make solving the problem easier.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def num_points_scored(player_name)
+</span><span class='line'>  find_player_name(player_name)[:stats][:points] 
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#helper method 
+</span><span class='line'>def find_player_name(player_name) 
+</span><span class='line'>  game_hash.each do |location, team_hash| 
+</span><span class='line'>    if team_hash[:players][player_name] 
+</span><span class='line'>      return team_hash[:players][player_name] 
+</span><span class='line'>    end
+</span><span class='line'>  end
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I realized that code is code - a method used to do a certain task will always do that task. This part of code will alway be the same, but what a developer has control over is how they solve the problem. The logic they use, the specific methods they know that will help them solve the problem, and as in my case, their overall mindset in tackling a particularly complex problem. What I really learned this week was that aspect of coding. That the way I approach a problem may make it harder or easier to solve.  I obviously need to understand the code behind solving the problem but I can get to those solutions easier when I take it slow, think about what I know, find out what I do not know and move in an orderly manner through any particular problem.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -178,6 +393,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/04/19/changing-the-way-i-think-about-complex-problems/">Changing the Way I Think About Complex Problems</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/04/05/your-basic-guide-to-git/">Your Basic Guide to Git</a>
