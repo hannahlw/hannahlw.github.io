@@ -9,9 +9,7 @@
   <meta name="author" content="Hannah Westheimer">
 
   
-  <meta name="description" content="Here are some commands to remember to help your octopress experience go smoothly! 1
-2
-# Creating a new post - pages can be found in source/_posts. &hellip;">
+  <meta name="description" content="This week we were introduced to rails. At a glance rails just looks like a ton of files that mysteriously appear when a few lines of code are typed &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -41,8 +39,6 @@
   <header role="banner"><hgroup>
   <h1><a href="/">Code for Thought</a></h1>
   
-    <h2>A journey from food to code.</h2>
-  
 </hgroup>
 
 </header>
@@ -69,6 +65,73 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/04/30/rails/">The Magic of Rails</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-04-30T20:29:02-04:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:29 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This week we were introduced to rails. At a glance rails just looks like a ton of files that mysteriously appear when a few lines of code are typed into the terminal. I have spent the last week and a half trying to master sinatra, a small and flexible web framework much like rails but with no fancy scaffolding (a term I go into a bit below) and no guiding principles. After having to create many of the files manually in sinatra, seeing a rails app created for the first time left me with a reaction of confusion and awe.</p>
+
+<p>Here I am going to go over some basic rails terminology and principles.</p>
+
+<h2>First, What Exactly is Rails?</h2>
+
+<p>Rails is an application development framework built using the Ruby language which aims to make the developer’s experience seamless by already including the structure that is needed to create an app with a simple <code>rails new</code> command.</p>
+
+<p>The <a href="http://guides.rubyonrails.org/getting_started.html">Rails Guides</a> brag that rails “allows you to write less code while accomplishing more than many other languages and frameworks.”  Without a framework like rails, a programmer would have a huge job to implement all the required infrastructure to get an app up and running before they could begin to start creating their app. Rails creates this infrastructure for the developer.</p>
+
+<p>One thing that makes rails popular is its guiding principles:</p>
+
+<p>Don&rsquo;t Repeat Yourself: Known by the acronym DRY, the Rail’s Guide’s state, &ldquo;Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.&rdquo; This principle is to help the developer write code that has less bugs because when code is duplicated, an application becomes more complex, making it more difficult to maintain.</p>
+
+<p>Convention Over Configuration: “Rails has opinions about the best way to do many things in a web application, and defaults to this set of conventions, rather than require that you specify every minutiae through endless configuration files.” This principle means you’ll be productive. You won’t spend time setting up configuration files. You’ll spend less time thinking about where things go and what names to assign. And, because other developers have learned the same conventions, it is easier to collaborate.</p>
+
+<h2>Some Basic Terminology</h2>
+
+<p>Model/View/Controller pattern - Rails is built around a model-view-controller pattern. This pattern helps in separating the data (model), the logic (controller), and the display (view).</p>
+
+<p><img src="/images/image.png" width="350" height="350" title="image" alt="images"></p>
+
+<p><strong>Models</strong> - The model represents information that you are using in your application.</p>
+
+<p><strong>Controllers</strong> - The controller, as the name suggests, controls the models and the view. It receives user commands and communicates with the models to process the commands. It then tells the view how to display to the user.</p>
+
+<p><strong>Views</strong> - The view is how things are visually displayed to the user. It determines how the user interacts with the application and data is presented to the user. The views are written in html or ERB, a ruby embedded language.</p>
+
+<p><strong>CRUD</strong> - CRUD is an acronym for the basic operations performed when an app uses a database for storing data. The acronym stands for &mdash;</p>
+
+<p>-<strong>C</strong>reate new records in the database</p>
+
+<p>-<strong>R</strong>ead or show the records in the database</p>
+
+<p>-<strong>U</strong>pdate existing records</p>
+
+<p>-<strong>D</strong>estroy or delete records</p>
+
+<p><strong>Scaffolding</strong> - Scaffolding is like a build in CRUD wizard. Because these CRUD actions are done so often rails provides commands to make creating them easier.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -460,6 +523,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/04/30/rails/">The Magic of Rails</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/04/19/a-basic-guide-to-octopress/">A Basic Guide to Octopress</a>

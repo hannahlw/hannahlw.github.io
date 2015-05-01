@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>The Magic of Rails - Code for Thought</title>
+  <meta name="author" content="Hannah Westheimer">
+
+  
+  <meta name="description" content="This week we were introduced to rails. At a glance rails just looks like a ton of files that mysteriously appear when a few lines of code are typed &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://hannahlw.github.io/blog/2015/04/30/rails/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Code for Thought" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Code for Thought</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="hannahlw.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+<li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">The Magic of Rails</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-04-30T20:29:02-04:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:29 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This week we were introduced to rails. At a glance rails just looks like a ton of files that mysteriously appear when a few lines of code are typed into the terminal. I have spent the last week and a half trying to master sinatra, a small and flexible web framework much like rails but with no fancy scaffolding (a term I go into a bit below) and no guiding principles. After having to create many of the files manually in sinatra, seeing a rails app created for the first time left me with a reaction of confusion and awe.</p>
+
+<p>Here I am going to go over some basic rails terminology and principles.</p>
+
+<h2>First, What Exactly is Rails?</h2>
+
+<p>Rails is an application development framework built using the Ruby language which aims to make the developer’s experience seamless by already including the structure that is needed to create an app with a simple <code>rails new</code> command.</p>
+
+<p>The <a href="http://guides.rubyonrails.org/getting_started.html">Rails Guides</a> brag that rails “allows you to write less code while accomplishing more than many other languages and frameworks.”  Without a framework like rails, a programmer would have a huge job to implement all the required infrastructure to get an app up and running before they could begin to start creating their app. Rails creates this infrastructure for the developer.</p>
+
+<p>One thing that makes rails popular is its guiding principles:</p>
+
+<p>Don&rsquo;t Repeat Yourself: Known by the acronym DRY, the Rail’s Guide’s state, &ldquo;Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.&rdquo; This principle is to help the developer write code that has less bugs because when code is duplicated, an application becomes more complex, making it more difficult to maintain.</p>
+
+<p>Convention Over Configuration: “Rails has opinions about the best way to do many things in a web application, and defaults to this set of conventions, rather than require that you specify every minutiae through endless configuration files.” This principle means you’ll be productive. You won’t spend time setting up configuration files. You’ll spend less time thinking about where things go and what names to assign. And, because other developers have learned the same conventions, it is easier to collaborate.</p>
+
+<h2>Some Basic Terminology</h2>
+
+<p>Model/View/Controller pattern - Rails is built around a model-view-controller pattern. This pattern helps in separating the data (model), the logic (controller), and the display (view).</p>
+
+<p><img src="/images/image.png" width="350" height="350" title="image" alt="images"></p>
+
+<p><strong>Models</strong> - The model represents information that you are using in your application.</p>
+
+<p><strong>Controllers</strong> - The controller, as the name suggests, controls the models and the view. It receives user commands and communicates with the models to process the commands. It then tells the view how to display to the user.</p>
+
+<p><strong>Views</strong> - The view is how things are visually displayed to the user. It determines how the user interacts with the application and data is presented to the user. The views are written in html or ERB, a ruby embedded language.</p>
+
+<p><strong>CRUD</strong> - CRUD is an acronym for the basic operations performed when an app uses a database for storing data. The acronym stands for &mdash;</p>
+
+<p>-<strong>C</strong>reate new records in the database</p>
+
+<p>-<strong>R</strong>ead or show the records in the database</p>
+
+<p>-<strong>U</strong>pdate existing records</p>
+
+<p>-<strong>D</strong>estroy or delete records</p>
+
+<p><strong>Scaffolding</strong> - Scaffolding is like a build in CRUD wizard. Because these CRUD actions are done so often rails provides commands to make creating them easier.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Hannah Westheimer</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-04-30T20:29:02-04:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:29 pm</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://hannahlw.github.io/blog/2015/04/30/rails/" data-via="" data-counturl="http://hannahlw.github.io/blog/2015/04/30/rails/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/04/19/a-basic-guide-to-octopress/" title="Previous Post: A Basic Guide to Octopress">&laquo; A Basic Guide to Octopress</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/04/30/rails/">The Magic of Rails</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/04/19/a-basic-guide-to-octopress/">A Basic Guide to Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/04/19/changing-the-way-i-think-about-complex-problems/">Changing the Way I Think About Complex Problems</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/04/05/your-basic-guide-to-git/">Your Basic Guide to Git</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/29/so-you-want-to-be-a-web-developer/">So You Want to Be a Web-Developer?</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Hannah Westheimer -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

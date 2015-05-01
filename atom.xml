@@ -4,7 +4,7 @@
   <title><![CDATA[Code for Thought]]></title>
   <link href="http://hannahlw.github.io/atom.xml" rel="self"/>
   <link href="http://hannahlw.github.io/"/>
-  <updated>2015-04-20T08:25:27-04:00</updated>
+  <updated>2015-04-30T22:53:17-04:00</updated>
   <id>http://hannahlw.github.io/</id>
   <author>
     <name><![CDATA[Hannah Westheimer]]></name>
@@ -12,6 +12,53 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[The Magic of Rails]]></title>
+    <link href="http://hannahlw.github.io/blog/2015/04/30/rails/"/>
+    <updated>2015-04-30T20:29:02-04:00</updated>
+    <id>http://hannahlw.github.io/blog/2015/04/30/rails</id>
+    <content type="html"><![CDATA[<p>This week we were introduced to rails. At a glance rails just looks like a ton of files that mysteriously appear when a few lines of code are typed into the terminal. I have spent the last week and a half trying to master sinatra, a small and flexible web framework much like rails but with no fancy scaffolding (a term I go into a bit below) and no guiding principles. After having to create many of the files manually in sinatra, seeing a rails app created for the first time left me with a reaction of confusion and awe.</p>
+
+<p>Here I am going to go over some basic rails terminology and principles.</p>
+
+<h2>First, What Exactly is Rails?</h2>
+
+<p>Rails is an application development framework built using the Ruby language which aims to make the developer’s experience seamless by already including the structure that is needed to create an app with a simple <code>rails new</code> command.</p>
+
+<p>The <a href="http://guides.rubyonrails.org/getting_started.html">Rails Guides</a> brag that rails “allows you to write less code while accomplishing more than many other languages and frameworks.”  Without a framework like rails, a programmer would have a huge job to implement all the required infrastructure to get an app up and running before they could begin to start creating their app. Rails creates this infrastructure for the developer.</p>
+
+<p>One thing that makes rails popular is its guiding principles:</p>
+
+<p>Don&rsquo;t Repeat Yourself: Known by the acronym DRY, the Rail’s Guide’s state, &ldquo;Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.&rdquo; This principle is to help the developer write code that has less bugs because when code is duplicated, an application becomes more complex, making it more difficult to maintain.</p>
+
+<p>Convention Over Configuration: “Rails has opinions about the best way to do many things in a web application, and defaults to this set of conventions, rather than require that you specify every minutiae through endless configuration files.” This principle means you’ll be productive. You won’t spend time setting up configuration files. You’ll spend less time thinking about where things go and what names to assign. And, because other developers have learned the same conventions, it is easier to collaborate.</p>
+
+<h2>Some Basic Terminology</h2>
+
+<p>Model/View/Controller pattern - Rails is built around a model-view-controller pattern. This pattern helps in separating the data (model), the logic (controller), and the display (view).</p>
+
+<p><img src="http://hannahlw.github.io/images/image.png" width="350" height="350" title="image" alt="images"></p>
+
+<p><strong>Models</strong> - The model represents information that you are using in your application.</p>
+
+<p><strong>Controllers</strong> - The controller, as the name suggests, controls the models and the view. It receives user commands and communicates with the models to process the commands. It then tells the view how to display to the user.</p>
+
+<p><strong>Views</strong> - The view is how things are visually displayed to the user. It determines how the user interacts with the application and data is presented to the user. The views are written in html or ERB, a ruby embedded language.</p>
+
+<p><strong>CRUD</strong> - CRUD is an acronym for the basic operations performed when an app uses a database for storing data. The acronym stands for &mdash;</p>
+
+<p>-<strong>C</strong>reate new records in the database</p>
+
+<p>-<strong>R</strong>ead or show the records in the database</p>
+
+<p>-<strong>U</strong>pdate existing records</p>
+
+<p>-<strong>D</strong>estroy or delete records</p>
+
+<p><strong>Scaffolding</strong> - Scaffolding is like a build in CRUD wizard. Because these CRUD actions are done so often rails provides commands to make creating them easier.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[A Basic Guide to Octopress]]></title>
