@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Rails Routes! - Code for Thought</title>
+  <meta name="author" content="Hannah Westheimer">
+
+  
+  <meta name="description" content="Routes are a very confusing topic that have taken me a while to understand and trying to understand rails without understanding routes looks kind of &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://hannahlw.github.io/blog/2015/05/13/rails-routes/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Code for Thought" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Code for Thought</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="hannahlw.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+<li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Rails Routes!</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-05-13T19:41:22-04:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:41 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Routes are a very confusing topic that have taken me a while to understand and trying to understand rails without understanding routes looks kind of like this…</p>
+
+<iframe src="//giphy.com/embed/INsHh1HFSggA8?html5=true" width="480" height="271" frameBorder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+
+<p>The basic concept is that rails routes are how rails apps read a URL. When a user goes to a certain URL, the URL is sent to the rails routes folder (located in config/routes.rb). If the routes folder recognizes the URL, it then looks inside it’s corresponding controller for actions (or methods) that match that URL. Basically, it&rsquo;s a way to redirect incoming requests to controllers and actions within the app.</p>
+
+<h1>Resourceful Routes</h1>
+
+<p>Resource routing allows you to quickly declare all of the common routes for a given resourceful controller. Instead of declaring separate routes for your index, show, new, edit, create, update and destroy actions, a resourceful route declares them in a single line of code.</p>
+
+<p><code>resources :photo</code></p>
+
+<p>creates the following information&hellip;</p>
+
+<p><img src="../images/image1.png" title="A brick" alt="a brick" /></p>
+
+<p>Tip - you can also add multiple resources in a single line:</p>
+
+<p><code>resources :photo, :magazine, :animal</code></p>
+
+<p>You can think of the controller/action part of the routes as a direction. “photo#index” tells your app to go to the photo controller and the index action and look for further instructions there.</p>
+
+<p>If you don’t want the user to have access to all 7 routes that are created when using resources, rails provides the “only” keyword so you can specify exactly what you want to be created.</p>
+
+<p><code>resources :photo, :only =&gt; [:index, :show]</code></p>
+
+<p>This will only create the photo#index and photo#show.</p>
+
+<h1>Non-Resourceful Routes</h1>
+
+<p>If you wish to create routes that do not fit the 7 routes that are created with resources, you can make custom routes  with the  HTTP helper methods. These include GET, POST, PATCH, PUT and DELETE. An example of this is below</p>
+
+<p><code>GET  "/photo", to: photo#new'</code>
+<code>GET photo/:id' =&gt; photos#show'</code></p>
+
+<p>You can even make your routes respond to more than one HTTP helper method using :via and :match.</p>
+
+<p><code>match photo/:id' =&gt; photos#show', via: [:get, :post]</code></p>
+
+<p>If you would like to change the URL of your custom route you can do so with the as keyword…</p>
+
+<p>Now that I have a better understanding of routes, I can hopefully master rails as well as this dog has mastered catch!</p>
+
+<iframe src="//giphy.com/embed/VmlVxZnAm7wvm" width="480" height="220" frameBorder="0" style="max-width: 100%" class="giphy-embed" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+
+<p>Don’t forget you can always see all your routes by typing in &ldquo;rails routes&rdquo; into your terminal or going to localhost:3000/rails/info/routes</p>
+
+<p>For a more comprehensive overview of Rails Routes checkout the <a href="http://guides.rubyonrails.org/routing.html#non-resourceful-routes">Rails Guides</a>!!!!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Hannah Westheimer</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-05-13T19:41:22-04:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:41 pm</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://hannahlw.github.io/blog/2015/05/13/rails-routes/" data-via="" data-counturl="http://hannahlw.github.io/blog/2015/05/13/rails-routes/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/04/30/rails/" title="Previous Post: The Magic of Rails">&laquo; The Magic of Rails</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/05/13/rails-routes/">Rails Routes!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/04/30/rails/">The Magic of Rails</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/04/19/a-basic-guide-to-octopress/">A Basic Guide to Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/04/19/changing-the-way-i-think-about-complex-problems/">Changing the Way I Think About Complex Problems</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/04/05/your-basic-guide-to-git/">Your Basic Guide to Git</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Hannah Westheimer -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

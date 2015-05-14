@@ -4,7 +4,7 @@
   <title><![CDATA[Code for Thought]]></title>
   <link href="http://hannahlw.github.io/atom.xml" rel="self"/>
   <link href="http://hannahlw.github.io/"/>
-  <updated>2015-04-30T22:53:17-04:00</updated>
+  <updated>2015-05-13T20:33:45-04:00</updated>
   <id>http://hannahlw.github.io/</id>
   <author>
     <name><![CDATA[Hannah Westheimer]]></name>
@@ -12,6 +12,64 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Routes!]]></title>
+    <link href="http://hannahlw.github.io/blog/2015/05/13/rails-routes/"/>
+    <updated>2015-05-13T19:41:22-04:00</updated>
+    <id>http://hannahlw.github.io/blog/2015/05/13/rails-routes</id>
+    <content type="html"><![CDATA[<p>Routes are a very confusing topic that have taken me a while to understand and trying to understand rails without understanding routes looks kind of like this…</p>
+
+<iframe src="//giphy.com/embed/INsHh1HFSggA8?html5=true" width="480" height="271" frameBorder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+
+<p>The basic concept is that rails routes are how rails apps read a URL. When a user goes to a certain URL, the URL is sent to the rails routes folder (located in config/routes.rb). If the routes folder recognizes the URL, it then looks inside it’s corresponding controller for actions (or methods) that match that URL. Basically, it&rsquo;s a way to redirect incoming requests to controllers and actions within the app.</p>
+
+<h1>Resourceful Routes</h1>
+
+<p>Resource routing allows you to quickly declare all of the common routes for a given resourceful controller. Instead of declaring separate routes for your index, show, new, edit, create, update and destroy actions, a resourceful route declares them in a single line of code.</p>
+
+<p><code>resources :photo</code></p>
+
+<p>creates the following information&hellip;</p>
+
+<p><img src="../images/image1.png" title="A brick" alt="a brick" /></p>
+
+<p>Tip - you can also add multiple resources in a single line:</p>
+
+<p><code>resources :photo, :magazine, :animal</code></p>
+
+<p>You can think of the controller/action part of the routes as a direction. “photo#index” tells your app to go to the photo controller and the index action and look for further instructions there.</p>
+
+<p>If you don’t want the user to have access to all 7 routes that are created when using resources, rails provides the “only” keyword so you can specify exactly what you want to be created.</p>
+
+<p><code>resources :photo, :only =&gt; [:index, :show]</code></p>
+
+<p>This will only create the photo#index and photo#show.</p>
+
+<h1>Non-Resourceful Routes</h1>
+
+<p>If you wish to create routes that do not fit the 7 routes that are created with resources, you can make custom routes  with the  HTTP helper methods. These include GET, POST, PATCH, PUT and DELETE. An example of this is below</p>
+
+<p><code>GET  "/photo", to: photo#new'</code>
+<code>GET photo/:id' =&gt; photos#show'</code></p>
+
+<p>You can even make your routes respond to more than one HTTP helper method using :via and :match.</p>
+
+<p><code>match photo/:id' =&gt; photos#show', via: [:get, :post]</code></p>
+
+<p>If you would like to change the URL of your custom route you can do so with the as keyword…</p>
+
+<p>Now that I have a better understanding of routes, I can hopefully master rails as well as this dog has mastered catch!</p>
+
+<iframe src="//giphy.com/embed/VmlVxZnAm7wvm" width="480" height="220" frameBorder="0" style="max-width: 100%" class="giphy-embed" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+
+<p>Don’t forget you can always see all your routes by typing in &ldquo;rails routes&rdquo; into your terminal or going to localhost:3000/rails/info/routes</p>
+
+<p>For a more comprehensive overview of Rails Routes checkout the <a href="http://guides.rubyonrails.org/routing.html#non-resourceful-routes">Rails Guides</a>!!!!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[The Magic of Rails]]></title>
@@ -38,7 +96,7 @@
 
 <p>Model/View/Controller pattern - Rails is built around a model-view-controller pattern. This pattern helps in separating the data (model), the logic (controller), and the display (view).</p>
 
-<p><img src="http://hannahlw.github.io/images/image.png" width="350" height="350" title="image" alt="images"></p>
+<p><img src="../images/image.png" alt="" /></p>
 
 <p><strong>Models</strong> - The model represents information that you are using in your application.</p>
 
