@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Alias in Rails - Code for Thought</title>
+  <meta name="author" content="Hannah Westheimer">
+
+  
+  <meta name="description" content="It is our last full week coding at Flatiron, and we are working hard on our final projects. The application we are building allows users to both post &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://hannahlw.github.io/blog/2015/06/08/alias-in-rails/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Code for Thought" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Code for Thought</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="hannahlw.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+<li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Alias in Rails</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-06-08T21:40:32-04:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>9:40 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>It is our last full week coding at Flatiron, and we are working hard on our final projects. The application we are building allows users to both post food items they will not use and allow others to claim those items posted by others. We wanted to make sure individuals using the application could be both Posters and Claimers. In order to accomplish this we had to alter our associations and create new aliases. It was a great review of these concepts and working it out through our new application really helped me understand them and how to use them.</p>
+
+<p>When you create an association, Rails makes two major assumptions</p>
+
+<ul>
+<li>The class of the model your association points to is based directly off of the name of the association</li>
+<li>The foreign key in a belongs_to relationship will be called yourassociationname_id.</li> 
+</ul>
+
+
+<p>Any time you go away from these defaults, you need to let Rails know what kind of class to look for and which foreign key to use.</p>
+
+<p>Suppose you want to refer to a model as two different things and setup the associations to reflect this. We used this in a Flatiron lab that referred to AirBnB. In this lab a single User could be a Host or a Guest. We wanted to be able to refer to the same individual as both a host and a guest throughout our app and know that this was actually the same user. This is called aliasing - where we are giving one user two names throughout the app.</p>
+
+<p>In our final project we also have a user,  however, we wanted to refer to the user as someone who posts food to our site (a poster) as well as someone who could claim food (a claimer). Here we want access to :poster_id and :claimer_id and not just :user_id.</p>
+
+<p>To do this we had to modify our associations in our models. Once we modify these associations we can actually refer to these aliases throughout the app. Rails knows that there will be times when you want to customize the behavior of your belongs_to association reference. These customizations are accomplished by passing options and scope blocks when you create the association. You can use the :class_name option to give a new model name. For example, in our app, if a food item belongs to a Poster, but the actual name of the model containing users of our site is User, you&rsquo;d set things up this way:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class FoodItem &lt; ActiveRecord::Base
+</span><span class='line'>  belongs_to :poster, :class_name =&gt; "User", :foreign_key =&gt; "poster_id"
+</span><span class='line'>  belongs_to :claimer, :class_name =&gt; "User", :foreign_key =&gt; "claimer_id"
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The next step is to set the set the alias foreign key’s directly. The :foreign_key option lets you set the name of the foreign key like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class User &lt; ActiveRecord::Base
+</span><span class='line'>  has_many :food_items, :foreign_key =&gt; "poster_id"
+</span><span class='line'>  has_many :food_items, :foreign_key =&gt; "claimer_id"
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The basic concept here is that rails allows you to have aliases by following the convention that applies to all association - the models name have to be referred (we are just using :class_name to refer to the names we made up) and then we have to get the app using the correct forgin key with :foreign_key.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Hannah Westheimer</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-06-08T21:40:32-04:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>9:40 pm</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://hannahlw.github.io/blog/2015/06/08/alias-in-rails/" data-via="" data-counturl="http://hannahlw.github.io/blog/2015/06/08/alias-in-rails/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/05/26/sustainableagriculture-dot-merge-tech/" title="Previous Post: SustainableAgriculture.merge(TECH)">&laquo; SustainableAgriculture.merge(TECH)</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/06/08/alias-in-rails/">Alias in Rails</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/26/sustainableagriculture-dot-merge-tech/">SustainableAgriculture.merge(TECH)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/13/rails-routes/">Rails Routes!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/04/30/rails/">The Magic of Rails</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/04/19/a-basic-guide-to-octopress/">A Basic Guide to Octopress</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Hannah Westheimer -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
